@@ -79,7 +79,8 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: ichef_production
-  username: ichef
-  password: <%= ENV['ICHEF_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  #<<: *default
+  #database: ichef_production
+  #username: ichef
+  #password: <%= ENV['ICHEF_DATABASE_PASSWORD'] %>
