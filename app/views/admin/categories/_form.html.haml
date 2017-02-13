@@ -1,0 +1,5 @@
+= simple_form_for @category, url: form_url do |f|
+  = f.input :name
+  = f.input :description, as: :text, input_html: { rows: 5 }
+
+  = f.button :submit, 'Save', class: 'btn btn-success'

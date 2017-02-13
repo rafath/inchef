@@ -21,8 +21,8 @@
           = image_tag('logo.png')
         #nav.navbarSupportedContent.collapse.navbar-collapse
           %ul.navbar-nav.ml-auto
-            %li.nav-item{class: set_active_if('advert')}
-              %a.nav-link{href: '#'} Advertisements
+            %li.nav-item{class: set_active_if('restaurant')}
+              = link_to 'Restaurants', admin_restaurants_path, class: 'nav-link'
             %li.nav-item{class: set_active_if('companies')}
               %a.nav-link{href: '#'} Companies
             %li.nav-item{class: set_active_if('events')}
@@ -43,7 +43,7 @@
             &times;
           =msg
         :javascript
-          // setTimeout("$('.alert').slideUp('slow');", 15000);
+          setTimeout("$('.alert').slideUp('slow');", 15000);
 
       = yield
 

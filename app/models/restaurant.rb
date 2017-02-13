@@ -7,4 +7,6 @@ class Restaurant < ApplicationRecord
   has_many :meal_options
   has_many :products
   has_many :ingredients
+
+  validates_presence_of :name
 end

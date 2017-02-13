@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   has_many :restaurants
 
+  def restaurant(id)
+    self.restaurants(id).first
+  end
 end

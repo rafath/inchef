@@ -1,0 +1,15 @@
+%header.mb-2
+.float-right
+  = link_to 'New restaurant', new_admin_restaurant_path, class: 'btn btn-success'
+%h2
+  Create restaurants
+
+%table.table.table-border.table-hover
+  %tr
+    %th Name
+    %th Option
+    - @restaurants.each do |restaurant|
+      %tr
+        %td= restaurant.name
+        %td= link_to 'categories', admin_restaurant_categories_path(restaurant.id), class: 'btn btn-success btn-sm'
+        %td= link_to 'edit', edit_admin_restaurant_path(restaurant.id), class: 'btn btn-success btn-sm'

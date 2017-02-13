@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   devise_for :users, path: 'admin'
 
   namespace :admin do
-    root to: redirect('/admin/home/')
+    root to: redirect('/admin/restaurants/')
     get 'home' => 'home#index', as: :home
+
+    resources :restaurants do
+      resources :categories
+    end
 
   end
 end

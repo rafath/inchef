@@ -4,6 +4,7 @@ class CreateRestaurants < ActiveRecord::Migration[5.0]
       t.belongs_to :user
       t.string :name
       t.string :domain
+      t.string :phone
       t.string :street
       t.string :city
       t.string :postcode

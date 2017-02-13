@@ -30,4 +30,23 @@ class AdminController < ApplicationController
     raise ActionController::RoutingError.new('Not Found')
   end
 
+  def load_resource(name)
+    model = Object.const_get(name.to_s.capitalize)
+    instance_variable_set("@#{name}", params[:id].present? ? model.find(params[:id]) : model.new)
+  end
+
+  def load_restaurant_resource(name)
+    collection = name.to_s.pluralize # category => categories
+    @restaurant = current_user.restaurant(params[:restaurant_id])
+    instance_variable_set("@#{name}", params[:id].present? ?
+        @restaurant.send(collection).find(params[:id])
+    :
+        @restaurant.send(collection).build)
+  end
+
+
+  def permit_params(resource)
+    params.require(resource.to_sym).permit!
+  end
+
 end
