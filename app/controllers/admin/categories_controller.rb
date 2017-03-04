@@ -13,7 +13,7 @@ class Admin::CategoriesController < AdminController
   def create
     @category.attributes = permit_params(:category)
     if @category.save
-      redirect_to admin_restaurant_categories_path(params[:restaurant_id]), notice: 'Category added succesfully'
+      redirect_to admin_restaurant_categories_path(params[:restaurant_id]), notice: 'Category added successfully'
     else
       render :new
     end
@@ -25,7 +25,7 @@ class Admin::CategoriesController < AdminController
 
   def update
     if @category.update(permit_params(:category))
-      redirect_to admin_restaurant_categories_path(@restaurant), notice: 'Category updated succesfully'
+      redirect_to admin_restaurant_categories_path(@restaurant), notice: 'Category updated successfully'
     else
       render :edit
     end

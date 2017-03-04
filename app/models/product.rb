@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
 
   belongs_to :restaurant
-  has_and_belongs_to_many :meals
+  belongs_to :invoices, optional: true
+  has_many :meals, through: :ingredients
 
 end

@@ -1,7 +1,11 @@
 class Meal < ApplicationRecord
 
   belongs_to :restaurant
-  has_and_belongs_to_many :products
+
+  has_many :products, through: :ingredients
+
   has_many :ingredients
+  accepts_nested_attributes_for :ingredients
+
 
 end

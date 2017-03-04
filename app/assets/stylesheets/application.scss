@@ -37,3 +37,12 @@ nav.navbar {
   margin-bottom: 15px;
   overflow: hidden;
 }
+
+.radio_buttons > label {
+  display: block;
+}
+.radio_buttons {
+  span.radio {
+    display: block;
+  }
+}

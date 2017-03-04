@@ -5,6 +5,9 @@ class AddFieldsToUser < ActiveRecord::Migration[5.0]
     add_column :users, :lastname, :string
     add_column :users, :role_type, :string, default: 'customer' # admin | customer | owner-admin  | employee?
     add_column :users, :is_trusted, :boolean, default: false
+    add_column :users, :address, :string
+    add_column :users, :city, :string
+    add_column :users, :postcode, :string
     User.where(email: 'ichef@zaraz.pl').update(is_trusted: true, role_type: 'admin')
   end
 

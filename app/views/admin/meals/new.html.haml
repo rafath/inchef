@@ -1,0 +1,34 @@
+= simple_form_for @meal, url: admin_restaurant_meals_path(@restaurant) do |f|
+  .container
+    = f.input :name
+    .row
+      .col-md-4= f.input :gross_price
+      .col-md-4= f.input :vat, as: :select, collection: select_options_for_vat, include_blank: false
+      .col-md-4= f.input :register_code
+      .col-md-2= f.input :is_available, as: :radio_buttons
+      .col-md-4= f.input :image, as: :file
+      .col-md-6= f.input :description, as: :text, input_html: { rows: 4 }
+
+    #clone
+      = f.simple_fields_for :ingredients do |ft|
+        .row{data: {'index' => ft.index }}
+          .col-md-4= ft.input :product_name, placeholder: 'Product name', input_html: { class: 'ingredients' }
+          .col-md-4= ft.input :quantity, placeholder: 'qty', input_html: { class: 'ingredients' }
+          .col-md-4= ft.input :qty_type, placeholder: 'gr', input_html: { class: 'ingredients' }
+
+  = f.button :submit, 'Save', class: 'btn btn-success'
+:javascript
+  $(function() {
+    $('#clone').on( 'keydown', '.row:last', function() {
+        $(this).clone().appendTo('#clone');
+        var new_index = $('.row:last').attr('data-index')*1+1
+        elems = $('.row:last input.ingredients')
+        elems.each(function() {
+          elem = $(this).attr('name');
+          $(this).attr('name', $(this).attr('name').replace(/\d+/, new_index));
+          $(this).attr('id', $(this).attr('id').replace(/\d+/, new_index));
+          $(this).val('')
+        });
+        $('.row:last').attr('data-index', new_index)
+    } );
+  });

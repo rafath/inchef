@@ -1,0 +1,17 @@
+%header.mb-2
+.float-right
+  = link_to 'New meal', new_admin_restaurant_meal_path(params[:restaurant_id]), class: 'btn btn-success'
+%h2
+  Meals
+
+
+%table.table.table-border.table-hover
+  %tr
+    %th Name
+    %th Option
+    - @meals.each do |meal|
+      %tr
+        %td= meal.name
+        %td
+          = link_to 'edit', edit_admin_restaurant_meal_path(params[:restaurant_id], meal.id), class: 'btn btn-success btn-sm'
+          = link_to 'delete', admin_restaurant_meal_path(params[:restaurant_id], meal.id), class: 'btn btn-danger btn-sm', data: { confirm: 'Are you sure you want to delete it?' }, method: :delete
