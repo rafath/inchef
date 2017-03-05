@@ -12,5 +12,6 @@
       %tr
         %td= restaurant.name
         %td= link_to 'categories', admin_restaurant_categories_path(restaurant), class: 'btn btn-success btn-sm'
+        %td= link_to 'caterings', admin_restaurant_caterings_path(restaurant), class: 'btn btn-success btn-sm'
         %td= link_to 'meals', admin_restaurant_meals_path(restaurant), class: 'btn btn-success btn-sm'
         %td= link_to 'edit', edit_admin_restaurant_path(restaurant), class: 'btn btn-success btn-sm'

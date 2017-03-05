@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170224052559) do
   end
 
   create_table "caterings", force: :cascade do |t|
+    t.integer  "restaurant_id"
     t.integer  "user_id"
     t.decimal  "price",                            precision: 10, scale: 2, default: "0.0"
     t.integer  "calories",                                                  default: 1500
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170224052559) do
     t.boolean  "is_active",                                                 default: true
     t.datetime "created_at",                                                                null: false
     t.datetime "updated_at",                                                                null: false
+    t.index ["restaurant_id"], name: "index_caterings_on_restaurant_id", using: :btree
     t.index ["user_id"], name: "index_caterings_on_user_id", using: :btree
   end
 

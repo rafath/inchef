@@ -56,4 +56,5 @@ Rails.application.configure do
   config.web_console.whitelisted_ips = '192.168.66.1'
   config.generators.assets = false
   config.generators.helper = false
+  config.react.variant = :development
 end

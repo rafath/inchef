@@ -35,13 +35,16 @@ class AdminController < ApplicationController
     instance_variable_set("@#{name}", params[:id].present? ? model.find(params[:id]) : model.new)
   end
 
-  def load_restaurant_resource(name)
+  def load_restaurant_resource(name=false)
     collection = name.to_s.pluralize # category => categories
     @restaurant = current_user.restaurants.find(params[:restaurant_id])
-    instance_variable_set("@#{name}", params[:id].present? ?
-        @restaurant.send(collection).find(params[:id])
-    :
-        @restaurant.send(collection).build)
+    if name
+      instance_variable_set("@#{name}", params[:id].present? ?
+          @restaurant.send(collection).find(params[:id])
+      :
+          @restaurant.send(collection).build)
+    end
+
   end
 
 

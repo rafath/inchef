@@ -1,6 +1,7 @@
 class CreateCaterings < ActiveRecord::Migration[5.0]
   def change
     create_table :caterings do |t|
+      t.belongs_to :restaurant
       t.belongs_to :user
       t.decimal :price, precision: 10, scale: 2, default: 0.00
       t.integer :calories, default: 1500 # 1500 1750 2000 - sam obiad, bez obiad -> komentarze

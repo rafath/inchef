@@ -5,8 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :restaurants
-  has_many :caterings
+
+  has_many :caterings, inverse_of: :user
+  accepts_nested_attributes_for :caterings
+
   has_many :catering_exceptions
+
   has_many :deliveries
 
   def restaurant(id)
