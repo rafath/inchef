@@ -15,6 +15,7 @@
  */
 html, body {
   font-family: Lato, system, sans-serif;
+  background-color: #fff;
 }
 
 nav.navbar {
@@ -45,4 +46,16 @@ nav.navbar {
   span.radio {
     display: block;
   }
+}
+.catering-1500 {
+  background-color: #DFF0D8;
+}
+.catering-1750 {
+  background-color: #FCF8E3;
+}
+.catering-2000 {
+  background-color: #D9EDF7;
+}
+.table-bordered td, .table-bordered th {
+  border: 1px solid #fff;
 }

@@ -23,16 +23,6 @@
           %ul.navbar-nav.ml-auto
             %li.nav-item{class: set_active_if('restaurant')}
               = link_to 'Restaurants', admin_restaurants_path, class: 'nav-link'
-            %li.nav-item{class: set_active_if('companies')}
-              %a.nav-link{href: '#'} Companies
-            %li.nav-item{class: set_active_if('events')}
-              = link_to 'Events', '#', class: 'nav-link'
-            %li.nav-item{class: set_active_if('categories')}
-              = link_to 'Categories', '#', class: 'nav-link'
-            %li.nav-item{class: set_active_if('subcategories')}
-              %a.nav-link{:href => '#'} Sub-categories
-            %li.nav-item{class: set_active_if('pages')}
-              %a.nav-link{:href => '#'} Pages
             %li.nav-item
               = link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link'
 
@@ -46,7 +36,6 @@
           setTimeout("$('.alert').slideUp('slow');", 15000);
 
       = yield
-
 
     %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"}
     %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"}

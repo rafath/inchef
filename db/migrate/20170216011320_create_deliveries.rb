@@ -5,6 +5,7 @@ class CreateDeliveries < ActiveRecord::Migration[5.0]
       t.belongs_to :catering
       t.integer :delivery_qty, default: 1
       t.boolean :is_paid, default: false
+      # amout
       t.timestamps
     end
   end

@@ -13,7 +13,8 @@ class User < ApplicationRecord
 
   has_many :deliveries
 
-  def restaurant(id)
+  def restaurant(id=nil)
     self.restaurants(id).first
   end
+
 end

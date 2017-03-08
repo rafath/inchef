@@ -3,8 +3,7 @@ class Admin::CateringsController < AdminController
   before_action :load_restaurant_resource
 
   def index
-    @caterings = Catering.all.includes(:user)
-    # JSON.parse Tweet.all.to_json(include: :scores)
+    @caterings = Catering.all.order('caterings.calories, users.firstname').includes(:user).references(:user)
   end
 
   def new

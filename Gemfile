@@ -43,6 +43,7 @@ gem 'simple_form'
 gem 'kaminari'
 gem 'react-rails'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'react-rails-hot-loader'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
